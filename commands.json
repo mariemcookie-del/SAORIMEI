@@ -1,0 +1,169 @@
+[
+  {
+    "name": "+ping",
+    "description": "Vérifie la latence du bot."
+  },
+  {
+    "name": "+help",
+    "description": "Affiche la liste des commandes disponibles."
+  },
+  {
+    "name": "+about",
+    "description": "Affiche des informations sur le bot."
+  },
+  {
+    "name": "+pic [@membre]",
+    "description": "Affiche l'avatar d'un membre ou le vôtre."
+  },
+  {
+    "name": "+snipe",
+    "description": "Affiche le dernier message supprimé."
+  },
+  {
+    "name": "+lock",
+    "description": "Verrouille le salon (ou les pseudos avec 'name')."
+  },
+  {
+    "name": "+unlock",
+    "description": "Déverrouille le salon (ou les pseudos avec 'name')."
+  },
+  {
+    "name": "+rename [@membre] name",
+    "description": "Change le pseudo d'un membre."
+  },
+  {
+    "name": "+laisse [@membre]",
+    "description": "Applique le surnom spécial 🦮2 myr."
+  },
+  {
+    "name": "+chien [@membre]",
+    "description": "Applique le surnom spécial 🦮2 TheWife."
+  },
+  {
+    "name": "+unlaisse [@membre]",
+    "description": "Retire le surnom spécial."
+  },
+  {
+    "name": "+delaisse [@membre]",
+    "description": "Retire le surnom spécial."
+  },
+  {
+  {
+    "name": "+addrole [@membre] @rôle",
+    "description": "Ajoute un rôle à un membre."
+  },
+  {
+    "name": "+unrole [@membre] @rôle",
+    "description": "Retire un rôle à un membre."
+  },
+  {
+    "name": "+reset",
+    "description": "Recrée le salon à l'identique."
+  },
+  {
+    "name": "+clear",
+    "description": "Supprime tous les messages du salon."
+  },
+  {
+    "name": "+ticket",
+    "description": "Affiche le panneau de création de ticket."
+  },
+  {
+    "name": "+ban [@membre]",
+    "description": "Bannir un membre du serveur."
+  }
+]
+
+
+const enigmesCulture = [
+  // Jeux vidéo
+  { question: "Qui a créé la PlayStation ?", reponse: ["sony", "sony interactive entertainment"] },
+  { question: "En quelle année la première PlayStation est-elle sortie au Japon ?", reponse: ["1994"] },
+  { question: "Comment s'appelle le héros principal de Minecraft ?", reponse: ["steve"] },
+  { question: "Quelle entreprise a créé Mario ?", reponse: ["nintendo"] },
+  { question: "En quelle année Fortnite est-il sorti ?", reponse: ["2017"] },
+  { question: "Quel studio a créé GTA ?", reponse: ["rockstar games", "rockstar"] },
+  { question: "Comment s'appelle le monde de Pokémon où vivent les Pokémon ?", reponse: ["le monde pokemon", "monde pokemon"] },
+  { question: "Quelle entreprise fabrique les consoles Xbox ?", reponse: ["microsoft"] },
+  { question: "Quel personnage célèbre porte une casquette rouge avec un M ?", reponse: ["mario"] },
+  { question: "Quel jeu possède des Creepers ?", reponse: ["minecraft"] },
+
+  // Marques et technologie
+  { question: "Qui a fondé Microsoft avec Paul Allen ?", reponse: ["bill gates"] },
+  { question: "En quelle année le premier iPhone est-il sorti ?", reponse: ["2007"] },
+  { question: "Quelle entreprise fabrique les téléphones Galaxy ?", reponse: ["samsung"] },
+  { question: "Que signifie WWW dans une adresse Internet ?", reponse: ["world wide web"] },
+  { question: "Quelle entreprise développe Windows ?", reponse: ["microsoft"] },
+  { question: "Quelle entreprise a créé ChatGPT ?", reponse: ["openai", "open ai"] },
+  { question: "Quel réseau social utilise un logo en forme de fantôme ?", reponse: ["snapchat"] },
+  { question: "Quelle marque possède le logo à la pomme ?", reponse: ["apple"] },
+  { question: "En quelle année Google a-t-il été fondé ?", reponse: ["1998"] },
+  { question: "Que signifie USB ?", reponse: ["universal serial bus"] },
+
+  // Histoire et géographie
+  { question: "En quelle année le mur de Berlin est-il tombé ?", reponse: ["1989"] },
+  { question: "Qui était le premier homme à marcher sur la Lune ?", reponse: ["neil armstrong"] },
+  { question: "En quelle année a commencé la Révolution française ?", reponse: ["1789"] },
+  { question: "Quelle est la capitale de l'Espagne ?", reponse: ["madrid"] },
+  { question: "Quel est le plus grand pays du monde par superficie ?", reponse: ["russie", "la russie"] },
+  { question: "Dans quel pays se trouve la ville de Tokyo ?", reponse: ["japon", "au japon"] },
+  { question: "En quelle année le Titanic a-t-il coulé ?", reponse: ["1912"] },
+  { question: "Combien de pays compte l'Union européenne en 2026 ?", reponse: ["27", "vingt-sept", "vingt sept"] },
+  { question: "Quelle est la monnaie du Japon ?", reponse: ["yen", "le yen"] },
+  { question: "Quel océan se trouve entre l'Europe et l'Amérique ?", reponse: ["atlantique", "l atlantique", "océan atlantique"] },
+
+  // Sciences et culture générale
+  { question: "Qui a formulé la théorie de la relativité ?", reponse: ["albert einstein", "einstein"] },
+  { question: "Quelle planète possède des anneaux très visibles ?", reponse: ["saturne"] },
+  { question: "Quel gaz les plantes absorbent-elles principalement pour la photosynthèse ?", reponse: ["dioxyde de carbone", "co2"] },
+  { question: "Combien de dents possède normalement un adulte ?", reponse: ["32", "trente-deux", "trente deux"] },
+  { question: "Quel est le symbole chimique de l'or ?", reponse: ["au"] },
+  { question: "Combien de cœurs possède une pieuvre ?", reponse: ["3", "trois"] },
+  { question: "Quel est l'animal terrestre le plus rapide ?", reponse: ["guepard", "guépard", "le guepard", "le guépard"] },
+  { question: "Quel est le plus grand organe du corps humain ?", reponse: ["la peau", "peau"] },
+  { question: "Combien de joueurs une équipe de football aligne-t-elle sur le terrain au début d'un match ?", reponse: ["11", "onze"] },
+  { question: "Quelle langue parle-t-on principalement au Brésil ?", reponse: ["portugais", "le portugais"] }
+];
+
+
+client.on("messageCreate", async (message) => {
+  if (message.author.bot || !message.guild) return;
+
+  const args = message.content.trim().split(/\s+/);
+  if (args[0].toLowerCase() !== "+enigme") return;
+
+  const channel =
+    message.mentions.channels.first() || message.channel;
+
+  if (!channel.isTextBased() || !channel.send) {
+    return message.reply("Salon invalide.");
+  }
+
+  if (enigmesActives.has(channel.id)) {
+    return message.reply("Une énigme est déjà en cours dans ce salon.");
+  }
+
+  const enigme = enigmes[
+    Math.floor(Math.random() * enigmes.length)
+  ];
+
+  const embed = new EmbedBuilder()
+    .setColor("#2b2d31")
+    .setAuthor({ name: "SAORIMEI • MINI-JEU" })
+    .setTitle("Une nouvelle énigme")
+    .setDescription(
+      `> ${enigme.question}\n\n` +
+      "Réfléchis bien et envoie ta réponse dans le salon.\n" +
+      "La première bonne réponse remporte la manche."
+    )
+    .setFooter({ text: "Jeu d'énigmes • Bonne chance" });
+
+  const questionMessage = await channel.send({ embeds: [embed] });
+
+  enigmesActives.set(channel.id, {
+    reponses: enigme.reponse,
+    messageId: questionMessage.id
+  });
+
+  await message.reply(`Énigme publiée dans ${channel}.`);
+});

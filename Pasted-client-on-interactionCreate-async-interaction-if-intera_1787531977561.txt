@@ -1,0 +1,102 @@
+client.on("interactionCreate", async interaction => {
+    if (!interaction.isButton()) return;
+
+    // CRÉER UN TICKET
+    if (interaction.customId === "create_ticket") {
+
+        const existingTicket = interaction.guild.channels.cache.find(
+            channel => channel.name === `ticket-${interaction.user.username.toLowerCase()}`
+        );
+
+        if (existingTicket) {
+            return interaction.reply({
+                content: `❌ Tu as déjà un ticket : ${existingTicket}`,
+                ephemeral: true
+            });
+        }
+
+        const ticket = await interaction.guild.channels.create({
+            name: `ticket-${interaction.user.username}`,
+            type: ChannelType.GuildText,
+            permissionOverwrites: [
+                {
+                    id: interaction.guild.id,
+                    deny: [PermissionsBitField.Flags.ViewChannel]
+                },
+                {
+                    id: interaction.user.id,
+                    allow: [
+                        PermissionsBitField.Flags.ViewChannel,
+                        PermissionsBitField.Flags.SendMessages,
+                        PermissionsBitField.Flags.ReadMessageHistory
+                    ]
+                }
+            ]
+        });
+
+        const embed = new EmbedBuilder()
+            .setTitle("🎫 Ticket")
+            .setDescription(
+                `Bienvenue ${interaction.user} !\n\n` +
+                `Explique ton problème et attends qu'un membre du staff prenne ton ticket.\n\n` +
+                `👤 **Claim** → prendre le ticket\n` +
+                `🔓 **Unclaim** → libérer le ticket\n` +
+                `🔒 **Fermer** → fermer le ticket`
+            )
+            .setColor("Blue");
+
+        const buttons = new ActionRowBuilder().addComponents(
+            new ButtonBuilder()
+                .setCustomId("claim_ticket")
+                .setLabel("Claim")
+                .setEmoji("👤")
+                .setStyle(ButtonStyle.Success),
+
+            new ButtonBuilder()
+                .setCustomId("unclaim_ticket")
+                .setLabel("Unclaim")
+                .setEmoji("🔓")
+                .setStyle(ButtonStyle.Secondary),
+
+            new ButtonBuilder()
+                .setCustomId("close_ticket")
+                .setLabel("Fermer")
+                .setEmoji("🔒")
+                .setStyle(ButtonStyle.Danger)
+        );
+
+        await ticket.send({
+            content: `${interaction.user}`,
+            embeds: [embed],
+            components: [buttons]
+        });
+
+        await interaction.reply({
+            content: `✅ Ton ticket a été créé : ${ticket}`,
+            ephemeral: true
+        });
+    }
+
+    // CLAIM
+    if (interaction.customId === "claim_ticket") {
+        await interaction.reply(
+            `👤 **${interaction.user.username}** a pris en charge ce ticket.`
+        );
+    }
+
+    // UNCLAIM
+    if (interaction.customId === "unclaim_ticket") {
+        await interaction.reply(
+            `🔓 **${interaction.user.username}** a libéré ce ticket.`
+        );
+    }
+
+    // FERMER
+    if (interaction.customId === "close_ticket") {
+        await interaction.reply("🔒 Fermeture du ticket...");
+
+        setTimeout(async () => {
+            await interaction.channel.delete().catch(() => {});
+        }, 3000);
+    }
+});
